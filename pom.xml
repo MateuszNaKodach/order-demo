@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.3</version>
+        <version>3.5.14</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.fraktalio</groupId>
@@ -15,8 +15,8 @@
     <description>Order Management System - Demo</description>
 
     <properties>
-        <java.version>17</java.version>
-        <axon.version>4.8.3</axon.version>
+        <java.version>25</java.version>
+        <axon.version>4.13.1</axon.version>
         <testcontainers.version>1.18.3</testcontainers.version>
         <skipIntegrationTests>true</skipIntegrationTests>
     </properties>
@@ -145,6 +145,12 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
+            <version>12.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+            <version>12.5.0</version>
         </dependency>
 
         <!-- Metrics -->
@@ -197,9 +203,14 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.3.2</version>
+                <version>3.4.5</version>
                 <configuration>
-                    <to>order</to>
+                    <from>
+                        <image>eclipse-temurin:25-jre</image>
+                    </from>
+                    <to>
+                        <image>order</image>
+                    </to>
                 </configuration>
             </plugin>
         </plugins>
